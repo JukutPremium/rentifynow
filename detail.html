@@ -12,11 +12,11 @@
 
 <body class="p-6">
   <a href="index.html#product-list"
-    class="bg-[#010203] flex flexed justify-center items-center h-14 w-14 rounded-full fixed z-[9999] left-4 top-4 p-4 hover:animate-pulse hover:scale-[1.1] ease-in-out duration-300">
+    class="bg-[#010203] flex flexed justify-center items-center h-14 w-14 rounded-full fixed left-4 top-4 p-4 hover:animate-pulse hover:scale-[1.1] ease-in-out duration-300 z-10">
     <span class="ml-1 block w-5 h-5 border-white border-b-2 border-l-2 rotate-45"></span>
   </a>
 
-  <div class=" mx-auto px-5 py-24" id="product-detail">
+  <div class=" mx-auto px-5 py-10" id="product-detail">
     <div id="product-details" class="p-5 border rounded-lg shadow-md text-center">
       <!-- Informasi produk akan ditampilkan di sini -->
     </div>
@@ -37,7 +37,9 @@
     if (product) {
       productDetail.innerHTML = `
               <section class="text-gray-600 body-font overflow-hidden">
-                <div class="container px-5 py-24 mx-auto">
+                <div class="container sm:px-5 md:px-5 py-10 mx-auto">
+                  <img alt="ecommerce" class="md:hidden md:w-1/2 w-full md:h-auto h-64 object-cover object-center rounded" src="${product.img}">
+                  </div>
                   <div class="lg:w-4/5 mx-auto flex flex-wrap">
                     <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
                       <h2 class="text-sm title-font text-gray-500 tracking-widest">${product.category}</h2>
@@ -46,20 +48,20 @@
                         <a class="flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg px-1">Description</a>
                       </div>
                       <p class="leading-relaxed mb-4">${product.description}</p>
-                      <div class="flex border-t border-gray-200 py-2">
-                        <span class="text-gray-500">Color</span>
-                        <span class="ml-auto text-gray-900">${product.color}</span>
+                      <div class="flex border-t border-[#010203] py-2">
+                        <span class="text-[#010203]">Color</span>
+                        <span class="ml-auto text-[#010203]">${product.color}</span>
                       </div>
-                      <div class="flex border-t border-b mb-6 border-gray-200 py-2">
-                        <span class="text-gray-500">Quantity</span>
-                        <span class="ml-auto text-gray-900">${product.quantity}</span>
+                      <div class="flex border-t border-b mb-6 border-[#010203] py-2">
+                        <span class="text-[#010203]">Quantity</span>
+                        <span class="ml-auto text-[#010203]">${product.quantity}</span>
                       </div>
-                      <div class="flex">
+                      <div class="flex-col flex gap-2 items-center text-center">
                         <span class="title-font font-medium text-2xl text-gray-900">Rp. ${product.price},00-</span>
-                        <button onclick="toggleModal()" class="flex ml-auto text-white bg-[#010203] border-0 py-2 px-6 focus:outline-none">Rent Now!</button>
+                        <button onclick="toggleModal()" class="flex w-full ml-auto text-white bg-[#010203] border-0 py-2 px-6 focus:outline-none text-center justify-center">Rent Now!</button>
                       </div>
                     </div>
-                    <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="${product.img}">
+                    <img alt="ecommerce" class="md:block hidden lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="${product.img}">
                   </div>
                 </div>
 
@@ -67,12 +69,12 @@
                     <div id="bookingModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center z-50">
                       <div class="bg-white rounded-lg p-6 max-w-md w-full space-y-4">
                         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Booking Form</h2>
-                        <form id="bookingForm">
+                        <form id="bookingForm" onsubmit="sendWhatsApp()">
                           <label class="block mb-2 text-gray-700" for="name">Name:</label>
                           <input class="w-full px-3 py-2 border rounded" type="text" id="name" required>
                         
                           <label class="block mb-2 text-gray-700" for="number">Number:</label>
-                          <input class="w-full px-3 py-2 border rounded" type="text" id="number" required>
+                          <input class="w-full px-3 py-2 border rounded" type="number" id="number" required>
                         
                           <label class="block mt-4 mb-2 text-gray-700" for="address">Address:</label>
                           <input class="w-full px-3 py-2 border rounded" type="text" id="address" required>
@@ -87,7 +89,7 @@
                           <input class="w-full px-3 py-2 border rounded" type="text" id="carType" value="${product.name}" readonly>
 
                           <div class="flex mt-6">
-                            <button type="button" onclick="sendWhatsApp()" class="bg-[#010203] text-white px-4 py-2 rounded mr-4">Submit</button>
+                            <button type="submit" class="bg-[#010203] text-white px-4 py-2 rounded mr-4">Submit</button>
                             <button type="button" onclick="toggleModal()" class="px-4 py-2 text-gray-700 bg-gray-200 rounded">Cancel</button>
                           </div>
                         </form>
@@ -139,6 +141,9 @@
               </section>
        
       `;
+
+
+
     } else {
       productDetail.innerHTML = `<p>Produk tidak ditemukan.</p>`;
     }
@@ -155,10 +160,6 @@ function sendWhatsApp() {
   const rentalDate = document.getElementById("rentalDate").value;
   const returnDate = document.getElementById("returnDate").value;
 
-  if (!name || !address || !carType) {
-    alert("Please fill out all required fields.");
-    return;
-  }
   // ...... ....
   const encodedPhoneNumber = "NjI4NTE3NTQzMTc1Mw==";
   const phoneNumber = atob(encodedPhoneNumber);

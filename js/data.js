@@ -77,7 +77,7 @@ const products = [
         review: "1,9",
         img: "assets/5.jpg",
         description: "A classic from the 90s, the BMW E36 is known for its agile handling, sporty design, and iconic German engineering. Perfect for those looking to enjoy a dynamic driving experience in style.",
-        price: "3000.000",
+        price: "300.000",
         category: "Mobil",
         quantity:"351",
         color:"Black",
