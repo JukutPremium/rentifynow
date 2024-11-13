@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full border-b bg-white z-50">
+        <div class='w-full py-3 border-b md:block hidden'>
+            <div class='flex justify-between px-4 items-center'>
+                <div>
+                    <h1 class="text-2xl font-semibold">RentifyNow();</h1>
+                </div>
+                <div class='flex xl:gap-10 md:gap-8 gap-2'>
+                    <a href="#" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">Product</a>
+                    <a href="#" class="nav-link">Services</a>
+                </div>
+                <div>
+                    <button class='w-full py-2 px-8 rounded text-white bg-[#010203] hover:scale-[1.1] ease-in-out duration-300'>Contact</button>
+                </div>
+            </div>
+        </div>
+
+        <!--  -->
+
+        <div class="w-full py-3 px-4 border-b md:hidden flex justify-between items-center">
+            <h1 class="text-xl font-semibold">RentifyNow</h1>
+            <button id="menu-toggle" class="text-2xl focus:outline-none">
+                &#9776;
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden flex-col space-y-2 px-4 pb-4 md:hidden text-center">
+            <a href="#" class="block py-2">Home</a>
+            <a href="#" class="block py-2">Product</a>
+            <a href="#" class="block py-2">Services</a>
+            <button class='py-2 w-full text-center bg-black rounded text-white'>Contact</button>
+        </div>
+    </nav>
+
+    <!-- Navbar End -->
+
+    <!-- Hero Mobile -->
+    <div class="relative w-full md:hidden">
+        <div class="absolute inset-0 md:relative md:order-2 md:w-1/2">
+            <img src="../assets/heroimg.jpg" alt="Hero Image"
+                class="w-full h-screen md:h-auto object-cover opacity-100">
+            <div class="absolute inset-0 overlay-bg md:hidden"></div>
+        </div>
+
+        <div class="relative min-h-screen flex items-center justify-center px-6 md:px-20">
+            <div class="w-full max-w-8xl md:flex md:items-center">
+                <div class="relative z-10 text-center md:text-left md:w-1/2 lg:pr-32">
+                    <h2 class="text-4xl lg:text-5xl text-white md:text-[#010203] leading-tight font-medium">
+                        Welcome to <span class="font-bold">RentifyNow.</span>
+                    </h2>
+                    <h3
+                        class="mt-6 md:mt-10 text-md lg:text-xl text-gray-200 md:text-gray-700 font-light tracking-wider leading-relaxed">
+                        Experience a pleasant experience with our super comfortable vehicles.
+                    </h3>
+                    <div class="mt-10 flex flex-col sm:flex-row justify-center md:justify-start gap-4 ">
+                        <button class="w-full mt-4 sm:mt-0 sm:ml-4 sm:w-40 px-4 py-3 text-white bg-[#010203] px-9 py-2 text-white hover:scale-[1.1] ease-in-out duration-300 rounded" href="#product-list">
+                            Get started
+                        </button>
+                        <button class="w-full mt-4 sm:mt-0 sm:ml-4 sm:w-40 px-4 py-3 text-white bg-[#010203] px-9 py-2 text-white hover:scale-[1.1] ease-in-out duration-300 rounded" href="">
+                            Contact Me!
+                        </button>
+                    </div>
+                </div>
+                <div class="hidden md:block md:w-1/2"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero Mobile End -->
+
+    <!-- Hero Dekstop -->
+    <div class="md:flex hidden items-center justify-center bg-hero h-screen overflow-hidden">
+        <div class="flex flex-col gap-6 md:flex-row items-center w-full h-full">
+            <div class="w-full md:w-1/2 lg:pr-32 px-20">
+                <h2 class="text-4xl lg:text-5xl text-center md:text-left text-[#010203] leading-tight font-medium">
+                    Welcome to <span class="font-bold">RentifyNow.</span>
+                </h2>
+                <h3
+                    class="mt-6 md:mt-10 text-md lg:text-xl text-center md:text-left text-gray-700 font-light tracking-wider leading-relaxed">
+                    Experience a pleasant experience with our super comfortable vehicles.
+                </h3>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                    <button class="w-full sm:w-40 px-4 py-3 text-white bg-[#010203] hover:scale-[1.1] ease-in-out duration-300 rounded"><a href="#product-list">Get started</a></button>
+                    <button class="w-full sm:w-40 px-4 py-3 text-white bg-[#010203] hover:scale-[1.1] ease-in-out duration-300 rounded">Contact
+                        Me!</button>
+                </div>
+            </div>
+            <div class="w-full h-full flex justify-center md:justify-end">
+                <img src="../assets/heroimg.jpg" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </div>
+    <!-- Hero Dekstop End -->
+
+    <!-- Conten -->
+    <!-- Content -->
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-wrap -m-4" id="product-list">
+                <!-- <a href="detail.html?id=${product.id}"
+                        class="block relative h-48 rounded overflow-hidden">
+                        <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                            src="../assets/heroimg.jpg">
+                    </a>
+                    <div class="mt-4">
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">${product.category}</h3>
+                        <h2 class="text-gray-900 title-font text-lg font-medium">${product.name}</h2>
+                        <p class="mt-1">${product.price}</p>
+                    </div> -->
+
+            </div>
+        </div>
+    </section>
+    <!-- Content End -->
+
+    <!-- Dunia per JS-an -->
+    <script src="../js/main.js"></script>
+    <script src="../js/data.js"></script>
+    <script>
+        const productList = document.getElementById('product-list');
+
+        products.forEach(product => {
+            const productItem = document.createElement('div');
+            productItem.classList.add('lg:w-1/4', 'md:w-1/2', 'w-full', 'my-4', 'p-4', 'w-full');
+            productItem.innerHTML = `
+
+                <div class="bg-white p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+                   
+                       
+                        <img alt="ecommerce" class="object-cover object-center w-full h-full block rounded"
+                            src="${product.img}">
+    
+                    <div class="mt-4">
+                        
+                        <h2 class="text-gray-900 title-font text-lg font-medium text-2xl">${product.name}</h2>
+                        <h2 class="text-gray-900 title-font font-medium text-md">Rp. ${product.price},00-</h2>
+                        
+                    </div>
+                    <!-- Tombol -->
+                    <div class="mt-4">
+                        <a class="bg-[#010203] text-white py-2 px-4 rounded" href="detail.html?id=${product.id}">
+                            See Details
+                        </a>
+                    </div>
+                </div>
+  `;
+            productList.appendChild(productItem);
+        });
+    </script>
+</body>
+
+</html>
